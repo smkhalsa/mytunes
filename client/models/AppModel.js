@@ -22,8 +22,9 @@ var AppModel = Backbone.Model.extend({
       this.get('songQueue').push(song);
     }, this);
 
-    params.library.on('dequeue', function(song) {
-      this.get('songQueue').shift(song);
+    params.library.on('dequeue', function() {
+      this.get('songQueue').shift();
+      this.set('currentSong', _.first(this.get('songQueue').models));
     }, this);
   }
 
