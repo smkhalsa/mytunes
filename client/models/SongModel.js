@@ -9,6 +9,10 @@ var SongModel = Backbone.Model.extend({
   enterQueue : function() {
     // Trigger an event on the queue in AppModel
     this.trigger('enqueue', this);
+  },
+
+  leaveQueue : function() {
+    this.trigger('dequeue', this);
   }
 
 });
